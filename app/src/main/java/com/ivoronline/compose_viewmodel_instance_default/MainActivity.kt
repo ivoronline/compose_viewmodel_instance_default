@@ -15,8 +15,8 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       Column {
-        MyCounter1(MyViewModel())                            //Model Instance is optional Parameter
-        MyCounter1(MyViewModel())                            //Model Instance is optional Parameter
+        MyCounter(MyViewModel())                            //Model Instance is optional Parameter
+        MyCounter(MyViewModel())                            //Model Instance is optional Parameter
       }
     }
   }
@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
 // COUNTER (Destination Composable)
 //==========================================================
 @Composable
-fun MyCounter1(myViewModel: MyViewModel = MyViewModel()) {                //Default Model Instance
+fun MyCounter(myViewModel: MyViewModel = MyViewModel()) {                //Default Model Instance
   Button({
     myViewModel.increase(10)                                             //Call Model Functions
     myViewModel.concat  (" hi")                                          //Call Model Functions
