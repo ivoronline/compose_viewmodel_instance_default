@@ -3,6 +3,7 @@ package com.ivoronline.compose_viewmodel_instance_default
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 
@@ -13,7 +14,10 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      MyCounter(MyViewModel())                             //Model Instance is optional Parameter
+      Column {
+        MyCounter1(MyViewModel())                            //Model Instance is optional Parameter
+        MyCounter1(MyViewModel())                            //Model Instance is optional Parameter
+      }
     }
   }
 }
@@ -22,7 +26,7 @@ class MainActivity : ComponentActivity() {
 // COUNTER (Destination Composable)
 //==========================================================
 @Composable
-fun MyCounter(myViewModel: MyViewModel = MyViewModel()) {                //Default Model Instance
+fun MyCounter1(myViewModel: MyViewModel = MyViewModel()) {                //Default Model Instance
   Button({
     myViewModel.increase(10)                                             //Call Model Functions
     myViewModel.concat  (" hi")                                          //Call Model Functions
@@ -30,4 +34,5 @@ fun MyCounter(myViewModel: MyViewModel = MyViewModel()) {                //Defau
     Text("(Count, Name) = (${myViewModel.count}, ${myViewModel.name})")  //Display State Variables
   }
 }
+
 
